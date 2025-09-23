@@ -1,0 +1,162 @@
+[
+    {
+        "id": "P001",
+        "nombre": "Nike Air Force 1 '07",
+        "precio": 2500,
+        "categoria": "Hombre",
+        "imagen": "https://www.pngarts.com/files/8/Air-Force-One-White-Nike-Shoes-PNG-Pic.png",
+        "stock": {
+            "20cm": 5,
+            "21cm": 8,
+            "22cm": 10,
+            "23cm": 15,
+            "24cm": 12,
+            "25cm": 6,
+            "26cm": 4,
+            "27cm": 3,
+            "28cm": 2,
+            "29cm": 1,
+            "30cm": 0
+        }
+    },
+    {
+        "id": "P002",
+        "nombre": "Nike Air Max SYSTM",
+        "precio": 2800,
+        "categoria": "Hombre",
+        "imagen": "https://static.nike.com/a/images/t_default/0c68ef4a-f0bf-4022-8605-7aee9d1cc127/NIKE+AIR+MAX+SYSTM.png",
+        "stock": {
+            "20cm": 3,
+            "21cm": 5,
+            "22cm": 8,
+            "23cm": 10,
+            "24cm": 7,
+            "25cm": 6,
+            "26cm": 4,
+            "27cm": 2,
+            "28cm": 1,
+            "29cm": 0,
+            "30cm": 0
+        }
+    },
+    {
+        "id": "P003",
+        "nombre": "Nike Zoom",
+        "precio": 3000,
+        "categoria": "Mujer",
+        "imagen": "https://www.pngarts.com/files/8/Air-Force-One-White-Nike-Shoes-Free-PNG-Image.png",
+        "stock": {
+            "20cm": 6,
+            "21cm": 5,
+            "22cm": 10,
+            "23cm": 12,
+            "24cm": 9,
+            "25cm": 4,
+            "26cm": 2,
+            "27cm": 1,
+            "28cm": 0,
+            "29cm": 0,
+            "30cm": 0
+        }
+    },
+    {
+        "id": "P004",
+        "nombre": "Nike Air Max",
+        "precio": 1900,
+        "categoria": "Unisex",
+        "imagen": "https://www.pngarts.com/files/8/Air-Force-One-White-Nike-Shoes-Transparent-Background-PNG.png",
+        "stock": {
+            "20cm": 2,
+            "21cm": 3,
+            "22cm": 5,
+            "23cm": 8,
+            "24cm": 6,
+            "25cm": 4,
+            "26cm": 3,
+            "27cm": 2,
+            "28cm": 1,
+            "29cm": 0,
+            "30cm": 0
+        }
+    },
+    {
+        "id": "P005",
+        "nombre": "Converse Chuck 70",
+        "precio": 1500,
+        "categoria": "Hombre",
+        "imagen": "https://static.nike.com/a/images/t_default/f1f272c7-7c79-4fab-9d11-cdf96b67e0cf/WMNS+NIKE+COURT+LEGACY+NN.png",
+        "stock": {
+            "20cm": 1,
+            "21cm": 4,
+            "22cm": 8,
+            "23cm": 10,
+            "24cm": 7,
+            "25cm": 5,
+            "26cm": 4,
+            "27cm": 3,
+            "28cm": 1,
+            "29cm": 0,
+            "30cm": 0
+        }
+    },
+    {
+        "id": "P006",
+        "nombre": "Nike Court Legacy",
+        "precio": 2200,
+        "categoria": "Mujer",
+        "imagen": "https://static.nike.com/a/images/t_default/922139e1-3221-4e96-a9f9-3fbb67926e17/NIKE+COURT+LEGACY+NN.png",
+        "stock": {
+            "20cm": 6,
+            "21cm": 5,
+            "22cm": 8,
+            "23cm": 11,
+            "24cm": 9,
+            "25cm": 7,
+            "26cm": 4,
+            "27cm": 2,
+            "28cm": 1,
+            "29cm": 0,
+            "30cm": 0
+        }
+    },
+    {
+        "id": "P007",
+        "nombre": "Reebok Classic Leather",
+        "precio": 1700,
+        "categoria": "Unisex",
+        "imagen": "https://static.nike.com/a/images/t_default/f1f272c7-7c79-4fab-9d11-cdf96b67e0cf/WMNS+NIKE+COURT+LEGACY+NN.png",
+        "stock": {
+            "20cm": 4,
+            "21cm": 3,
+            "22cm": 5,
+            "23cm": 7,
+            "24cm": 6,
+            "25cm": 4,
+            "26cm": 3,
+            "27cm": 2,
+            "28cm": 1,
+            "29cm": 0,
+            "30cm": 0
+        }
+    },
+    {
+        "id": "P008",
+        "nombre": "Nike V2K Run SE",
+        "precio": 2000,
+        "categoria": "Hombre",
+        "imagen": "https://static.nike.com/a/images/t_default/239f124a-be1f-4d7f-bc25-3f369d74f219/W+NIKE+V2K+RUN+SE.png",
+        "stock": {
+            "20cm": 5,
+            "21cm": 6,
+            "22cm": 7,
+            "23cm": 8,
+            "24cm": 5,
+            "25cm": 3,
+            "26cm": 2,
+            "27cm": 1,
+            "28cm": 0,
+            "29cm": 0,
+            "30cm": 0
+        }
+    }
+]

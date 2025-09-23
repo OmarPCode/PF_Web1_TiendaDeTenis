@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylesyellow.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Carrito</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar-logoyellow d-flex align-items-center">
+        <a href="home.html" class="d-flex align-items-center text-decoration-none">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0vf8ewJL-ntEtKYWFE-9qVZcdQgoMYnVbJA&s" 
+                 alt="LosZapaSoplas Logo" 
+                 style="height: 50px; border-radius: 10px; margin-right: 10px;">
+            <span class="fs-4 fw-bold text-white">LosZapaSoplas</span>
+        </a>
+    </div>
+
+    <!-- Título de Carrito -->
+    <div class="container my-3">
+        <h4 class="fw-bold display-4 carrito-title">Carrito</h4>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Productos -->
+            <div class="col-md-7" id="productContainer">
+                <!-- Productos cargados dinámicamente -->
+                <p class="text-center" id="emptyCartMessage">Tu carrito está vacío.</p>
+            </div>
+
+            <!-- Resumen de Compra dentro de una Card -->
+            <div class="col-md-5">
+                <div class="card p-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Resumen de Compra</h5>
+                        <div id="cart-summary">
+                            <!-- Resumen cargado dinámicamente -->
+                        </div>
+                        <p>Costo de envío: $50.00</p>
+                        <h5 id="total-summary">Total: $0.00</h5>
+                        <div class="d-flex gap-2">
+                            <a href="Pago.html" class="flex-grow-1">
+                                <button class="btn btn-primary w-100">Pagar</button>
+                            </a>
+                            <a href="home.html" class="flex-grow-1">
+                                <button class="btn btn-danger w-100">Cancelar</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script del carrito -->
+    <script src="cart.js"></script>
+    <script src="productpage.js"></script>
+    
+
+</body>
+</html>

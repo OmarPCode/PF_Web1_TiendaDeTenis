@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!--css-->
+    <style>
+        *{box-sizing: border-box;}
+        body {font-family: Arial, Helvetica, sans-serif;}
+        form {
+            width: 400px;
+            margin: 0 auto;
+            border: solid 1px #ccc;
+            padding: 20px;
+        }
+
+        input[type=text], input[type=password]{
+            border: solid 1px #ccc;
+            border-radius: 3px;
+            font-size: 18px;
+            outline: none;
+            padding: 10px;
+            width: 100%;
+        }
+
+        input[type=submit] {
+            border: 0;
+            outline: 0;
+            background-color: #003366;
+            font-size: 18px;
+            color: white;
+            padding: 10px 30px;
+            border-radius: 3px;
+        }
+
+        .section {padding: 15px 0;}
+        .section .title {padding: 10px 0;}
+
+        .button {
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .button a {
+            color: #1a72cb;
+        }
+
+        /* css sextra */
+        body {
+            background-color: rgb(255, 187, 0);
+        }
+
+        /*pos zapato*/
+        .tenis-img {
+            position: absolute;
+            left: 1150px;
+            top: 120px;
+            transform: rotate(-90deg);
+            width: 500px;
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        /* Estilo para el botón "Zapasoplas" en la parte superior izquierda */
+        .zapasoplas-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .zapasoplas-btn:hover {
+            background-color: #002244;
+        }
+
+        /* Cambiar el tamaño del texto */
+        .logo-text {
+            color: white;            /* Color blanco */
+            font-size: 2rem;         /* Tamaño más grande */
+            font-weight: bold;       /* Negritas para destacar */
+        }
+
+        /* Quitar la línea subrayada del enlace */
+        .logo-link {
+            text-decoration: none;
+        }
+
+        /* Asegurarse de que no aparezca la línea al pasar el mouse */
+        .logo-link:hover {
+            text-decoration: none;
+        }
+
+
+
+
+
+    </style>
+    <!--css-->
+</head>
+<body>
+
+    <div class="navbar d-flex align-items-center justify-content-between px-3">
+        <!-- Logo -->
+        <div class="navbar-logoyellow d-flex align-items-center">
+            <a href="home.html" 
+               class="d-flex align-items-center text-decoration-none logo-link">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0vf8ewJL-ntEtKYWFE-9qVZcdQgoMYnVbJA&s" 
+                     alt="LosZapaSoplas Logo" 
+                     style="height: 50px; border-radius: 10px; margin-right: 10px;">
+                <span class="logo-text">LosZapaSoplas</span>
+            </a>
+        </div>
+    </div>
+    
+
+    <form action="/authenticate" method="POST">
+        <h2>Login</h2>
+      
+        <div class="section">
+          <div class="title">Username</div>
+          <div class="field"><input type="text" id="username" name="username"></div>
+        </div>
+      
+        <div class="section">
+          <div class="title">Password</div>
+          <div class="field"><input type="password" id="password" name="password"></div>
+        </div>
+      
+        <div class="section">
+          <div class="button"><input type="submit" value="Login"></div>
+          <div class="button"><a href="singup.html">Registrarse</a></div>
+        </div>
+      </form>
+
+      <!--foto del zapato-->
+      <img src="https://www.pngarts.com/files/8/Nike-Air-Force-One-PNG-Free-Download.png" class="tenis-img" alt="Tenis">
+
+</body>
+</html>

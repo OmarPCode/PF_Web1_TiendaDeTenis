@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: rgb(255, 187, 0);
+        }
+
+        .contenedor {
+            position: absolute;
+            width: 75%;
+            height: 200px;
+            background-color: rgb(255, 187, 0);
+            border: 2px solid rgb(255, 187, 0);
+        }
+
+        /* Estilos para cajas */
+        .caja {
+            width: 190px;
+            height: 150px;
+            background-color: #f7c54d;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .cajax {
+            width: 190px;
+            height: 150px;
+            background-color: #000000;
+            border: 2px solid #000000;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgb(255, 187, 0);
+            position: absolute;
+            padding-top: 10px;
+            box-sizing: border-box;
+        }
+
+        .contenedor {
+            top: 250px;
+            left: 50px;
+        }
+
+        /* Posiciones específicas para cada caja */
+        .caja1 { top: 50px; left: 200px; }
+        .caja2 { top: 50px; left: 400px; }
+
+        .caja label {
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 5px;
+            color: #000000;
+        }
+
+        .cajax label {
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 5px;
+            color: rgb(255, 187, 0);
+        }
+
+        /* Estilo para los campos de texto */
+        .caja input {
+            width: 80%;
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid #000;
+            border-radius: 4px;
+            text-align: center;
+            color: #000;
+            background-color: #f7c54d;
+        }
+
+        .cajax input {
+            width: 80%;
+            padding: 5px;
+            font-size: 16px;
+            border: 2px solid rgb(255, 187, 0);
+            border-radius: 4px;
+            text-align: center;
+            color: rgb(255, 187, 0);
+            background-color: #000;
+        }
+
+        .BotonIS {
+        width: 200px;
+        height: 50px;
+        background-color: #000000;
+        color: #fff;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        position: absolute;
+        top: 600px;
+        left: 200px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .NombrePagina {
+            margin-top: 40px;
+            margin-left: 50px;
+            font-weight: bolder;
+            color: #000000;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .IniciarSesion {
+            margin-top: 50px;
+            margin-left: 100px;
+            font-weight: bolder;
+            color: #040404;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .MensajeIniciarSesion {
+            margin-top: 20px;
+            margin-left: 100px;
+            font-weight: bold;
+            color: #000000;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .tenis-img {
+            position: absolute;
+            left: 1160px;
+            top: 10px;
+            transform: rotate(-90deg);
+            width: 500px;
+            opacity: 0.9;
+            z-index: 1;
+        }
+
+        /* Boton ZapaSoplas e iniciar sesion */
+        .invisible-button {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .invisible-button h6 {
+            cursor: pointer;
+        }
+
+        .invisible-button:hover h6 {
+            opacity: 0.7;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar-logoyellow d-flex align-items-center">
+        <a href="home.html" class="d-flex align-items-center text-decoration-none">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0vf8ewJL-ntEtKYWFE-9qVZcdQgoMYnVbJA&s" 
+                 alt="LosZapaSoplas Logo" 
+                 style="height: 50px; border-radius: 10px; margin-right: 10px;">
+            <span class="fs-4 fw-bold text-white">LosZapaSoplas</span>
+        </a>
+    </div>
+
+    <div class="BotonIS">
+        <a href="#" class="invisible-button">
+            <h6>Iniciar Sesion</h6>
+        </a>
+    </div>
+
+    
+
+<div class="IniciarSesion">
+    <h1>Iniciar Sesion</h1>
+</div>
+
+<div class="MensajeIniciarSesion">
+    <h6>Iniciar sesion para ver todas las ofertas</h6>
+</div>
+
+<div class="contenedor">
+  <!-- Caja para "Nombre(s)" -->
+  <div class="caja caja1">
+      <label>Correo</label>
+      <input type="text" placeholder="Escribe aquí">
+  </div>
+
+  <!-- Caja para "Apellido(s)" -->
+  <div class="cajax caja2">
+      <label>Contraseña</label>
+      <input type="text" placeholder="Escribe aquí">
+  </div>
+</div>
+
+<img src="https://cdn.shopify.com/s/files/1/0116/2438/2528/products/air-jordan-4-retro-red-thunder-CT8527-016_1_1350x1350_53c02291-83cf-4120-99d3-1f4fd3bf261a_1200x1200.png?v=1642505164" class="tenis-img" alt="Tenis">
+
+</body>
+</html>

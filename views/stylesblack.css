@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px; /* Añade un padding para dar espacio a la navbar */
+  }
+  
+  /* Navbar */
+  .navbar {
+    width: 100%;
+    max-width: 1450px; /* Limita el ancho máximo de la navbar */
+    margin: 0 auto; /* Centra la navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Ajusta el padding a 20px */
+    position: fixed;
+    top: 0;
+    background-color: black;
+    z-index: 1000; /* Asegura que la navbar esté encima del contenido */
+  }
+  
+  .navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .navbar-logo a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .navbar-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  
+  .navbar-links a:hover {
+    color: #febc21;
+  }
+  
+  .cart-button {
+    background-color: #febc21;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    font-weight: bold; /* Negrita para el botón del carrito */
+  }
+  
+  .cart-button:hover {
+    background-color: gold;
+  }
+  
+  /* Main content */
+  .main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Text styles */
+  .text-container h1 {
+    font-size: 3rem;
+    font-style: italic;
+    transform: rotate(-5deg);
+    color: white;
+    margin-bottom: 20px;
+  }
+  
+  .text-container .sneakers, .text-container .sale {
+    font-size: 6rem;
+    font-weight: bold;
+  }
+  
+  .text-container .sneakers {
+    background: linear-gradient(to right, #febc21, gold);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-container .sale {
+    color: white;
+    text-align: right;
+    margin-right: 10px;
+    position: relative;
+    left: 50%;
+  }
+  
+  /* Promo text style */
+  .promo-text {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 10px;
+    position: relative;
+    left: 25%;
+  }
+  
+  .buy-button {
+    background-color: #febc21;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold; /* Negrita para el botón de comprar ahora */
+    position: relative;
+    left: 30%;
+  }
+  
+  .buy-button:hover {
+    background-color: gold;
+  }
+  
+  .image-container {
+    position: relative;
+  }
+  
+  .image-container img {
+    width: 600px;
+    transform: rotate(-35deg);
+  }
+  
+  .image-container .circle {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background-color: #febc21;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  
+  /* Carrusel */
+  #carouselExampleAutoplaying {
+    width: 100%; /* Aumenta el ancho al máximo disponible */
+  }
+  
+  .carousel-inner {
+    width: 100%; /* Garantiza que el contenido del carrusel ocupe todo el ancho */
+  }
+
+  

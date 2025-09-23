@@ -1,0 +1,120 @@
+/* Navbar fija para fondo amarillo */
+.navbaryellow {
+    width: 100%;
+    max-width: 1450px; /* Limita el ancho máximo de la navbar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #febc21;
+    z-index: 1000;
+    height: 60px; /* Define una altura fija para la navbar */
+}
+
+/* Ajustes del contenido para evitar superposición */
+body {
+    background-color: #febc21;
+    padding-top: 70px; /* Ajusta el espacio según la altura de la navbar */
+}
+
+/* Estilo para la navbar fija */
+.navbar-logoyellow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #febc21;
+    z-index: 1000;
+    padding: 10px 20px;
+}
+
+.navbar-logoyellow a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+
+  /*Cart*/
+  .card-body {
+    color: black;  /* Cambia el color del texto dentro de las cards */
+    }
+    .input-group-text, input[type="number"] {
+        background-color: #ffeb85;
+        border: 1px solid #ccc;
+        color: black;
+    }
+    .card {
+        background-color: #ffeb85;
+        border-radius: 20px; /* Redondeo más grande */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efecto de sombra */
+        max-height: 400;
+    }
+
+    /* Opcional: sombra más suave en hover */
+    .card:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+        /* Cambiar el tamaño de la letra del título del carrito */
+    .carrito-title {
+        font-size: 2.5rem; /* Tamaño más pequeño */
+    }
+    .tenis-img {
+        position: absolute;
+        left: 1150px;
+        top: 120px;
+        transform: rotate(-90deg);
+        width: 500px;
+        opacity: 0.9;
+        z-index: 2000;
+    }
+    /* Estilo para la sección Acerca de */
+    .acerca-de-container {
+        max-width: 50%;  /* Asegura que ocupe máximo 3/4 de la pantalla */
+        margin-left: 10%; 
+    }
+    .acerca-de-container p {
+        text-align: left;  /* Alinea el texto a la izquierda */
+        margin-left: 0; 
+    }
+
+    /* Asegura que el carrusel esté centrado */
+.carousel-inner {
+    position: relative; /* Para que las flechas no se superpongan al contenido */
+}
+
+/* Estilo de las flechas */
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%; /* Centra las flechas verticalmente */
+    transform: translateY(-50%); /* Ajusta la posición vertical al centro */
+    width: 5%; /* Ajusta el tamaño de las flechas */
+    z-index: 10; /* Asegura que las flechas estén encima del contenido */
+}
+
+/* Estilo para las flechas al pasar el cursor */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+    border-radius: 50%; /* Flechas redondeadas */
+}
+
+/* Ajusta el espacio del contenedor para que no se superpongan */
+.carousel-item {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.carousel-item img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de su contenedor */
+    height: 200px; /* Define una altura fija */
+    object-fit: cover; /* Asegura que la imagen mantenga su proporción sin distorsionarse */
+}
+
+
+
+

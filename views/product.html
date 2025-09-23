@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Productos</title>
+    <style>
+        body {
+            background-color: #febc21;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1px 20px;
+            color: rgb(0, 0, 0);
+        }
+
+        .navbar-logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+
+        .navbar-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-size: 1rem;
+        }
+
+        .navbar-links a:hover {
+            color: #ffffff;
+        }
+
+        .cart-button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-button:hover {
+            background-color: #555;
+        }
+
+        .pagination {
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination .page-item .page-link {
+            color: #f8961e;
+            border-color: #f8961e;
+            font-size: 1.2rem;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #f8961e;
+            border-color: #f8961e;
+            color: white;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #febc21;
+            color: white;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Espacio uniforme entre las cards */
+            justify-content: flex-start; /* Alinear las cards a la izquierda */
+        }
+
+
+        .col-md-3 {
+            flex: 1 1 calc(25% - 20px); /* Tamaño flexible para que cada card ocupe el 25% del ancho */
+            max-width: calc(25% - 20px);
+            box-sizing: border-box;
+        }
+
+        .card {
+            height: 400px;
+            background-color: #ffeb85;
+            border: 1px solid #f9c74f;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px; /* Espacio interno en las cards */
+        }
+
+        .card img {
+            max-height: 200px;
+            object-fit: cover;
+            width: 100%; /* Ajusta la imagen al ancho de la card */
+            margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+        }
+
+        .card-body {
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card .btn {
+            background-color: #f8961e;
+            border: none;
+            color: white;
+            margin-top: auto; /* Empuja el botón al final de la card */
+        }
+
+        .card .btn:hover {
+            background-color: #f3722c;
+        }
+
+        /* Espaciado adicional entre las dos navbars */
+        .navbar + .navbar {
+            margin-top: 20px; /* Ajustar este valor según la cantidad de espacio deseado */
+        }
+
+        
+        /* Dropdown toggle botones amarillos */
+        .dropdown-toggle {
+            background-color: #f8961e; /* Amarillo */
+            color: #ffffff ; /* Negro */
+            border: none; /* Sin bordes */
+        }
+
+        .dropdown-menu {
+            width: auto; /* Ajuste automático al contenido */
+            min-width: 10rem; /* Establecer un ancho mínimo consistente */
+            background-color: #ffeb85; /* Fondo amarillo claro */
+            border: 1px solid #f9c74f; /* Borde amarillo oscuro */
+            box-sizing: border-box; /* Consistencia en el cálculo del ancho */
+        }
+
+        /* Estilo uniforme para los ítems del dropdown */
+        .dropdown-item {
+            color: #000 !important; /* Texto negro */
+            padding: 0.5rem 1rem; /* Espaciado interno */
+            box-sizing: border-box; /* Consistencia en el tamaño */
+            text-align: left; /* Alineación del texto a la izquierda */
+        }
+
+        /* Sin hover en las opciones */
+        .dropdown-item:hover {
+            background-color: #f9c74f; /* Fondo amarillo oscuro */
+            color: #000 !important; /* Texto negro */
+            width: auto; /* Consistencia en el cálculo del ancho */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Superior -->
+    <div class="navbar">
+        <div class="navbar-logoyellow d-flex align-items-center">
+            <a href="home.html" class="d-flex align-items-center text-decoration-none">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0vf8ewJL-ntEtKYWFE-9qVZcdQgoMYnVbJA&s" 
+                     alt="LosZapaSoplas Logo" 
+                     style="height: 50px; border-radius: 10px; margin-right: 10px;">
+                <span class="fs-4 fw-bold text-white">LosZapaSoplas</span>
+            </a>
+        </div>
+        <div class="navbar-links">
+            <a href="home.html">Inicio</a>
+            <a href="acercade.html">Acerca de</a>
+            <a href="product.html">Productos</a>
+            <a href="wishlist.html">Lista de deseos</a>
+            <a href="mispedidos.html">Mis Pedidos</a>
+            <a href="Perfil.html">Perfil</a>
+        </div>
+        <a href="shopping_card.html">
+            <button class="cart-button">CARRITO</button>
+        </a>
+    </div>
+
+    <div class="navbar">
+        <div class="navbar-links mx-auto">
+            <!-- Dropdown Categoría -->
+            <div class="dropdown d-inline-block">
+                <button class="btn dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categoría
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="filterByCategory('Hombre')">Hombre</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterByCategory('Mujer')">Mujer</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterByCategory('Unisex')">Unisex</a></li>
+                </ul>
+            </div>
+    
+            <!-- Dropdown Precio -->
+            <div class="dropdown d-inline-block ms-3">
+                <button class="btn dropdown-toggle" type="button" id="priceDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Precio
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="priceDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="filterByPriceRange(0, 1500)">Menos de $1500</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterByPriceRange(1500, 3000)">Entre $1500 y $3000</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterByPriceRange(3000, Infinity)">Más de $3000</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#" onclick="sortByPrice('asc')">Ordenar: Menor a Mayor</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="sortByPrice('desc')">Ordenar: Mayor a Menor</a></li>
+                </ul>
+            </div>
+    
+            <!-- Dropdown Talla -->
+            <div class="dropdown d-inline-block ms-3">
+                <button class="btn dropdown-toggle" type="button" id="sizeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Talla
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="sizeDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('20cm')">20cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('21cm')">21cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('22cm')">22cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('23cm')">23cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('24cm')">24cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('25cm')">25cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('26cm')">26cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('27cm')">27cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('28cm')">28cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('29cm')">29cm</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySize('30cm')">30cm</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Productos -->
+    <div class="container my-5">
+        <h2 class="fw-bold text-center mb-4">Nuestros Productos</h2>
+        <div class="row" id="productsContainer"></div>
+        <nav class="d-flex justify-content-center">
+            <ul class="pagination"></ul>
+        </nav>
+    </div>
+
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cartModalLabel">Seleccionar Talla</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="sizeForm">
+                        <div class="mb-3">
+                            <label for="sizeSelect" class="form-label">Elige tu talla</label>
+                            <select class="form-select" id="sizeSelect" required>
+                                <!-- Opciones generadas dinámicamente -->
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="addProductToCartFromModal()">Agregar al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="modal fade" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="wishlistModalLabel">Confirmación</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas agregar este producto a tu lista de deseos?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="confirmWishlistButton">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <nav class="d-flex justify-content-center">
+        <ul class="pagination"></ul>
+    </nav>
+    
+    
+    <!-- Llamada al script externo -->
+    <script src="cart.js"></script>
+    <script src="productpage.js"></script>
+
+    
+</body>
+</html>
+
+
+
