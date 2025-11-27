@@ -1,4 +1,5 @@
-console.log('Archivo shopping_card.js cargado correctamente');
+console.log('Archivo shopping_card.js cargado correctamente'); 
+
 function loadCartFromServer() {
     console.log('Intentando cargar datos del carrito...');
     fetch('/shopping_card')
@@ -12,15 +13,16 @@ function loadCartFromServer() {
                     throw new Error(`Error del servidor: ${response.statusText}`);
                 }
             }
-            return response.json(); // Aquí fallará si el servidor devuelve HTML
+            return response.json();
         })
         .then(cartData => {
             console.log('Datos del carrito recibidos:', cartData);
             renderCart(cartData);
         })
+        .catch(error => {
+            console.error('Error al cargar el carrito:', error);
+        });
 }
-
-
 
 function addToCart(id, size, quantity = 1) {
     console.log('Enviando datos al servidor para agregar al carrito:', { id, size, quantity });
@@ -60,15 +62,13 @@ function updateProductQuantity(id, size, newQuantity) {
         })
         .then(updatedCartData => {
             console.log('Cantidad actualizada en el servidor:', updatedCartData);
-            renderCart(updatedCartData); // Actualiza la vista directamente con los nuevos datos
+            renderCart(updatedCartData);
         })
         .catch(error => {
             console.error('Error al actualizar el carrito:', error);
             alert(`Error: ${error.message}`);
         });
 }
-
-
 
 function removeFromCart(id, size) {
     console.log('Eliminando producto del carrito en el servidor:', { id, size });
@@ -86,7 +86,7 @@ function removeFromCart(id, size) {
         })
         .then(cartData => {
             console.log('Producto eliminado, datos del carrito actualizados:', cartData);
-            renderCart(cartData.cart);
+            renderCart(cartData);
         })
         .catch(error => console.error('Error al eliminar del carrito:', error));
 }
@@ -96,10 +96,10 @@ function renderCart(cartData) {
     const productContainer = document.querySelector('#productContainer');
     productContainer.innerHTML = '';
 
-    if (cartData.length === 0) {
+    if (!cartData || cartData.length === 0) {
         console.log('El carrito está vacío.');
         productContainer.innerHTML = '<p class="text-center">Tu carrito está vacío.</p>';
-        updateCartSummary(cartData);
+        updateCartSummary([]);
         return;
     }
 
@@ -144,6 +144,8 @@ function updateCartSummary(cartData) {
     console.log('Actualizando resumen del carrito:', cartData);
     const summaryContainer = document.querySelector('.col-md-5 .card-body');
 
+    if (!summaryContainer) return;
+
     let total = cartData.reduce((sum, item) => sum + item.quantity * item.precio, 0);
     const shippingCost = 50;
     const totalWithShipping = total + shippingCost;
@@ -168,4 +170,3 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Evento DOMContentLoaded ejecutado');
     loadCartFromServer();
 });
-

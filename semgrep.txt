@@ -1,0 +1,379 @@
+                    
+                    
+┌──────────────────┐
+│ 42 Code Findings │
+└──────────────────┘
+                                 
+  [36m[22m[24m  public/cart.js[0m
+    ❯❱ typescript.react.security.audit.react-unsanitized-method.react-unsanitized-method
+          Detection of insertAdjacentHTML from non-constant definition. This can inadvertently expose users to
+          cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use       
+          insertAdjacentHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.  
+          Details: https://sg.run/E5x8                                                                        
+                                                                                                              
+          137┆ productContainer.insertAdjacentHTML('beforeend', productHtml);
+   
+   ❯❯❱ javascript.browser.security.insecure-document-method.insecure-document-method
+          User controlled data in methods like `innerHTML`, `outerHTML` or `document.write` is an anti-pattern
+          that can lead to XSS vulnerabilities                                                                
+          Details: https://sg.run/LwA9                                                                        
+                                                                                                              
+          153┆ summaryContainer.innerHTML = `
+          154┆     <h5 class="card-title">Resumen de Compra</h5>
+          155┆     ${cartData.map(item => `<p>${item.nombre} (Talla: ${item.size}): $${(item.quantity *
+               item.precio).toFixed(2)}</p>`).join('')}                                                
+          156┆     <p>Costo de envío: $${shippingCost.toFixed(2)}</p>
+          157┆     <h5>Total: $${totalWithShipping.toFixed(2)}</h5>
+          158┆     <div class="d-flex gap-2">
+          159┆         <a href="Pago.html" class="flex-grow-1">
+          160┆             <button class="btn btn-primary w-100">Pagar</button>
+          161┆         </a>
+          162┆         <a href="home.html" class="flex-grow-1">
+             [hid 4 additional lines, adjust with --max-lines-per-finding] 
+                                        
+  [36m[22m[24m  public/productpage.js[0m
+   ❯❯❱ javascript.browser.security.insecure-document-method.insecure-document-method
+          User controlled data in methods like `innerHTML`, `outerHTML` or `document.write` is an anti-pattern
+          that can lead to XSS vulnerabilities                                                                
+          Details: https://sg.run/LwA9                                                                        
+                                                                                                              
+           66┆ productContainer.innerHTML += productHTML;
+            ⋮┆----------------------------------------
+          290┆ pageButton.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                                         
+  [36m[22m[24m  public/wishlistpage.js[0m
+    ❯❱ typescript.react.security.audit.react-unsanitized-method.react-unsanitized-method
+          Detection of insertAdjacentHTML from non-constant definition. This can inadvertently expose users to
+          cross-site scripting (XSS) attacks if this comes from user-provided input. If you have to use       
+          insertAdjacentHTML, consider using a sanitization library such as DOMPurify to sanitize your HTML.  
+          Details: https://sg.run/E5x8                                                                        
+                                                                                                              
+           50┆ wishlistContainer.insertAdjacentHTML('beforeend', productHtml);
+                            
+  [36m[22m[24m  server.js[0m
+     ❱ javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage
+          A CSRF middleware was not detected in your express application. Ensure you are either using one such
+          as `csurf` or `csrf` (see rule references) and/or you are properly doing CSRF validation in your    
+          routes with a token or cookies.                                                                     
+          Details: https://sg.run/BxzR                                                                        
+                                                                                                              
+           21┆ const app = express();
+   
+    ❯❱ javascript.express.security.audit.express-cookie-settings.express-cookie-session-default-name
+          Don’t use the default session cookie name Using the default session cookie name can open your app to
+          attacks. The security issue posed is similar to X-Powered-By: a potential attacker can use it to    
+          fingerprint the server and target attacks accordingly.                                              
+          Details: https://sg.run/1Z5x                                                                        
+                                                                                                              
+           36┆ app.use(session({
+           37┆   secret: 'clave_super_secreta',
+           38┆   resave: false,
+           39┆   saveUninitialized: false,
+           40┆   cookie: { secure: false }
+           41┆ }));
+   
+    ❯❱ javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-domain
+          Default session middleware settings: `domain` not set. It indicates the domain of the cookie; use it
+          to compare against the domain of the server in which the URL is being requested. If they match, then
+          check the path attribute next.                                                                      
+          Details: https://sg.run/rd41                                                                        
+                                                                                                              
+           36┆ app.use(session({
+           37┆   secret: 'clave_super_secreta',
+           38┆   resave: false,
+           39┆   saveUninitialized: false,
+           40┆   cookie: { secure: false }
+           41┆ }));
+   
+    ❯❱ javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-expires
+          Default session middleware settings: `expires` not set. Use it to set expiration date for persistent
+          cookies.                                                                                            
+          Details: https://sg.run/N4eG                                                                        
+                                                                                                              
+           36┆ app.use(session({
+           37┆   secret: 'clave_super_secreta',
+           38┆   resave: false,
+           39┆   saveUninitialized: false,
+           40┆   cookie: { secure: false }
+           41┆ }));
+   
+    ❯❱ javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-httponly
+          Default session middleware settings: `httpOnly` not set. It ensures the cookie is sent only over
+          HTTP(S), not client JavaScript, helping to protect against cross-site scripting attacks.        
+          Details: https://sg.run/ydBO                                                                    
+                                                                                                          
+           36┆ app.use(session({
+           37┆   secret: 'clave_super_secreta',
+           38┆   resave: false,
+           39┆   saveUninitialized: false,
+           40┆   cookie: { secure: false }
+           41┆ }));
+   
+    ❯❱ javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-path
+          Default session middleware settings: `path` not set. It indicates the path of the cookie; use it to
+          compare against the request path. If this and domain match, then send the cookie in the request.   
+          Details: https://sg.run/b7pd                                                                       
+                                                                                                             
+           36┆ app.use(session({
+           37┆   secret: 'clave_super_secreta',
+           38┆   resave: false,
+           39┆   saveUninitialized: false,
+           40┆   cookie: { secure: false }
+           41┆ }));
+   
+    ❯❱ javascript.express.security.audit.express-cookie-settings.express-cookie-session-no-secure
+          Default session middleware settings: `secure` not set. It ensures the browser only sends the cookie
+          over HTTPS.                                                                                        
+          Details: https://sg.run/9oKz                                                                       
+                                                                                                             
+           36┆ app.use(session({
+           37┆   secret: 'clave_super_secreta',
+           38┆   resave: false,
+           39┆   saveUninitialized: false,
+           40┆   cookie: { secure: false }
+           41┆ }));
+   
+    ❯❱ javascript.express.security.audit.express-session-hardcoded-secret.express-session-hardcoded-secret
+          A hard-coded credential was detected. It is not recommended to store credentials in source-code, as
+          this risks secrets being leaked and used by either an internal or external malicious adversary. It 
+          is recommended to use environment variables to securely provide credentials or retrieve credentials
+          from a secure vault or HSM (Hardware Security Module).                                             
+          Details: https://sg.run/LYvG                                                                       
+                                                                                                             
+           37┆ secret: 'clave_super_secreta',
+                                           
+  [36m[22m[24m  views/AdminProducts.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            6┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            7┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+                                         
+  [36m[22m[24m  views/CrearCuenta.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            8┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            9┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+                                           
+  [36m[22m[24m  views/IniciarSesion.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            8┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            9┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+                                  
+  [36m[22m[24m  views/Pago.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            6┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            8┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+            ⋮┆----------------------------------------
+            9┆ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-
+               awesome/6.0.0-beta3/css/all.min.css">                                    
+            ⋮┆----------------------------------------
+           10┆ <script src="https://js.stripe.com/v3/"></script>
+                                    
+  [36m[22m[24m  views/Perfil.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            8┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            9┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+                                      
+  [36m[22m[24m  views/acercade.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            6┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            8┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+            ⋮┆----------------------------------------
+            9┆ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-
+               awesome/6.0.0-beta3/css/all.min.css">                                    
+                                  
+  [36m[22m[24m  views/home.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            6┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            8┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+                                   
+  [36m[22m[24m  views/index.html[0m
+    ❯❱ python.django.security.django-no-csrf-token.django-no-csrf-token
+          Manually-created forms in django templates should specify a csrf_token to prevent CSRF attacks.
+          Details: https://sg.run/N0Bp                                                                   
+                                                                                                         
+          114┆ <form action="/login" method="POST">
+          115┆     <h2>Login</h2>
+          116┆
+          117┆     <div class="section">
+          118┆       <div class="title">Username</div>
+          119┆       <div class="field"><input type="text" id="username" name="username"></div>
+          120┆     </div>
+          121┆
+          122┆     <div class="section">
+          123┆       <div class="title">Password</div>
+             [hid 8 additional lines, adjust with --max-lines-per-finding] 
+                                        
+  [36m[22m[24m  views/mispedidos.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            6┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            8┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+                                     
+  [36m[22m[24m  views/product.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            6┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            7┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+            ⋮┆----------------------------------------
+            9┆ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-
+               awesome/6.0.0-beta3/css/all.min.css">                                    
+                                           
+  [36m[22m[24m  views/shopping_card.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            6┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            8┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+                                    
+  [36m[22m[24m  views/singup.html[0m
+    ❯❱ python.django.security.django-no-csrf-token.django-no-csrf-token
+          Manually-created forms in django templates should specify a csrf_token to prevent CSRF attacks.
+          Details: https://sg.run/N0Bp                                                                   
+                                                                                                         
+          132┆ <form action="/register" method="POST">
+          133┆     <h2>Registro</h2>
+          134┆
+          135┆     <div class="section">
+          136┆       <div class="title">Username</div>
+          137┆       <div class="field"><input type="text" id="username" name="username"></div>
+          138┆     </div>
+          139┆
+          140┆     <div class="section">
+          141┆       <div class="title">Password</div>
+             [hid 8 additional lines, adjust with --max-lines-per-finding] 
+                                      
+  [36m[22m[24m  views/wishlist.html[0m
+    ❯❱ html.security.audit.missing-integrity.missing-integrity
+          This tag is missing an 'integrity' subresource integrity attribute. The 'integrity' attribute allows
+          for the browser to verify that externally hosted files (for example from a CDN) are delivered       
+          without unexpected manipulation. Without this attribute, if an attacker can modify the externally   
+          hosted resource, this could lead to XSS and other types of attacks. To prevent this, include the    
+          base64-encoded cryptographic hash of the resource (file) you’re telling the browser to fetch in the 
+          'integrity' attribute for all externally hosted files.                                              
+          Details: https://sg.run/krXA                                                                        
+                                                                                                              
+            6┆ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+               rel="stylesheet">                                                                   
+            ⋮┆----------------------------------------
+            7┆ <script                                                                                    
+               src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script
+               >                                                                                          
+            ⋮┆----------------------------------------
+            8┆ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-
+               awesome/6.0.0-beta3/css/all.min.css">                                    
+

@@ -46,12 +46,11 @@
             color: #1a72cb;
         }
 
-        /* css sextra */
+        /* css extra */
         body {
             background-color: rgb(255, 187, 0);
         }
 
-        /*pos zapato*/
         .tenis-img {
             position: absolute;
             left: 1150px;
@@ -62,7 +61,6 @@
             z-index: 1;
         }
 
-        /* Estilo para el botón "Zapasoplas" en la parte superior izquierda */
         .zapasoplas-btn {
             position: absolute;
             top: 20px;
@@ -80,27 +78,19 @@
             background-color: #002244;
         }
 
-        /* Cambiar el tamaño del texto */
         .logo-text {
-            color: white;            /* Color blanco */
-            font-size: 2rem;         /* Tamaño más grande */
-            font-weight: bold;       /* Negritas para destacar */
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
-        /* Quitar la línea subrayada del enlace */
         .logo-link {
             text-decoration: none;
         }
 
-        /* Asegurarse de que no aparezca la línea al pasar el mouse */
         .logo-link:hover {
             text-decoration: none;
         }
-
-
-
-
-
     </style>
     <!--css-->
 </head>
@@ -120,7 +110,8 @@
     </div>
     
 
-    <form action="/authenticate" method="POST">
+    <!-- FORMULARIO CORREGIDO -->
+    <form action="/login" method="POST">
         <h2>Login</h2>
       
         <div class="section">
@@ -139,7 +130,6 @@
         </div>
       </form>
 
-      <!--foto del zapato-->
       <img src="https://www.pngarts.com/files/8/Nike-Air-Force-One-PNG-Free-Download.png" class="tenis-img" alt="Tenis">
 
 </body>
