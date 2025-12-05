@@ -1,0 +1,45 @@
+# 👟 PROYECTO: TIENDA DE TENIS – NODE + EXPRESS + MONGODB
+
+Aplicación web que simula una tienda de tenis con sistema de usuarios, carrito, wishlist y productos desde base de datos.
+
+Incluye:
+✅ Login y Registro  
+✅ Conexión a MongoDB  
+✅ Carrito de compras  
+✅ Wishlist  
+✅ Productos dinámicos  
+✅ Sesiones  
+✅ Stripe apagado (modo seguro para la escuela)  
+
+---
+
+## 📌 IMPORTANTE
+
+En este proyecto **NO se incluye**:
+
+- la carpeta `node_modules`
+- el archivo `.env`
+
+Esto se hace por:
+- Seguridad
+- Peso del archivo
+- Buenas prácticas
+
+TÚ debes generarlos siguiendo los pasos de abajo.
+
+---
+
+## ✅ REQUISITOS
+
+Instala en tu computadora:
+
+1. **Node.js** (v18 o superior)
+   👉 https://nodejs.org
+
+2. **MongoDB** (opciones):
+   - Instalar Mongo Local
+   - O usar MongoDB Atlas en la nube
+
+Para verificar Node:
+```bash
+node -v
